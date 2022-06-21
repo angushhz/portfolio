@@ -1,5 +1,3 @@
-function App() {
-	return <div className="text-xl text-center">Header</div>
-}
+function App() {}
 
 export default App
