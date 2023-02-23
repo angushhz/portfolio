@@ -2,32 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    background: #0f1624;
-    color: hsl(204, 23.8%, 95.9%);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: #0f1624;
+  color: hsl(204, 23.8%, 95.9%);
 }
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 li {
-    list-style: none;
+  list-style: none;
 }
 @layer components {
-    .container {
-        @apply px-4 pt-4 sm:pt-8 sm:px-12 relative z-0;
-    }
-    .header-section {
-        @apply text-[28px] pt-4 pb-2 mb-2 font-[600] text-transparent bg-clip-text bg-hero-pattern;
-    }
-    .header-section-larger {
-        @apply text-[65px];
-    }
-    .header-content {
-        @apply text-base pb-9 text-[#ffffff80] max-w-[670px];
-    }
-    .header-content-larger {
-        @apply text-2xl max-w-[800px];
-    }
+  .container {
+    @apply px-4 pt-4 sm:pt-8 sm:px-12 relative z-0;
+  }
+  .header-section {
+    @apply text-[28px] pt-4 pb-2 mb-2 font-[600] text-transparent bg-clip-text bg-hero-pattern w-max;
+  }
+  .header-section-larger {
+    @apply text-[65px];
+  }
+  .header-content {
+    @apply text-base pb-9 text-[#ffffff80] max-w-[670px];
+  }
+  .header-content-larger {
+    @apply text-2xl max-w-[800px];
+  }
 }
