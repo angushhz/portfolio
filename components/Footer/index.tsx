@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from 'react-icons/ai'
 import SocialMedia from '../Header/SocialMedia'
+import { revealComponent } from '@/services/fadeIn'
 
 function Footer() {
+  const myRef: any = useRef()
+  useEffect(() => {
+    revealComponent(myRef)
+  }, [])
+
   return (
-    <section className='container pb-8'>
+    <footer ref={myRef} className='container pb-8'>
       <div className='mb-4 md:mb-0 w-8 h-[2px] bg-gradient-to-l from-[#13ADC7] to-[#945DD6] rounded-xl md:w-16 md:h-[6px]'></div>
       <ul className='pt-5  grid grid-cols-3 md:mt-8 md:pt-[32px] md:pb-[16px] border-t-[1px] border-primary gap-x-6'>
         <div>
@@ -35,7 +41,7 @@ function Footer() {
           <SocialMedia />
         </div>
       </div>
-    </section>
+    </footer>
   )
 }
 

@@ -6,6 +6,9 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    variants: {
+      animation: ['motion-safe'],
+    },
     extend: {
       colors: {
         'white-rgba': 'rgba(255, 255, 255, 0.66)',
@@ -26,6 +29,15 @@ module.exports = {
       },
       backgroundImage: {
         'hero-pattern': 'linear-gradient(121.57deg,#FFFFFF 18.77%,rgba(255,255,255,0.66) 60.15%)',
+      },
+      animation: {
+        fadeIn: 'fadeIn 1s ease-in forwards',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
       },
     },
   },

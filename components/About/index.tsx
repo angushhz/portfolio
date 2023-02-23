@@ -1,18 +1,17 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import { timeLineData } from '@/constant'
 import { IconHero, TimeLineSVG } from '../Icon'
 import Slider from 'react-slick'
+import { revealComponent } from '@/services/fadeIn'
 
 function About() {
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  }
+  const myRef: any = useRef()
+  useEffect(() => {
+    revealComponent(myRef)
+  }, [])
+
   return (
-    <section id='about' className='container'>
+    <section ref={myRef} id='about' className='container'>
       <div className=' w-8 h-[2px] bg-gradient-to-l from-[#F46737] to-[#945DD6] rounded-xl md:w-16 md:h-[6px]'></div>
       <h1 className='header-section md:header-section-larger'>About Me</h1>
       <p className='header-content md:header-content-larger'>

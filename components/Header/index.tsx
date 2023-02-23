@@ -1,25 +1,21 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { DiCssdeck } from 'react-icons/di'
 import SocialMedia from './SocialMedia'
 import ScrollLink from '../ScrollLink'
+import { revealComponent } from '@/services/fadeIn'
+
 function Header() {
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    // first prevent the default behavior
-    e.preventDefault()
-    // get the href and remove everything before the hash (#)
-    const href = e.currentTarget.href
-    const targetId = href.replace(/.*\#/, '')
-    // get the element by id and use scrollIntoView
-    const elem = document.getElementById(targetId)
-    window.scrollTo({
-      top: elem?.getBoundingClientRect().top,
-      behavior: 'smooth',
-    })
-  }
+  const myRef: any = useRef(null)
+  useEffect(() => {
+    revealComponent(myRef)
+  }, [])
   return (
-    <header className='pt-5 pb-2.5 px-2.5 grid grid-cols-5 grid-rows-2 md:grid-rows-1 gap-1 md:grap-2 min-h-[80px]'>
+    <header
+      ref={myRef}
+      className='motion-safe:animate-fadeIn opacity-0 pt-5 pb-2.5 px-2.5 grid grid-cols-5 grid-rows-2 md:grid-rows-1 gap-1 md:grap-2 min-h-[80px]'
+    >
       <div className='flex items-center col-span-3 md:col-span-1 hover:cursor-pointer'>
         <DiCssdeck size='2rem' />
         <span>Portfolio</span>

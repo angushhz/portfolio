@@ -7,12 +7,16 @@
   padding: 0;
   background: #0f1624;
   color: hsl(204, 23.8%, 95.9%);
+  cursor: default;
 }
 html {
   scroll-behavior: smooth;
 }
 li {
   list-style: none;
+}
+a {
+  cursor: pointer;
 }
 @layer components {
   .container {
@@ -29,5 +33,8 @@ li {
   }
   .header-content-larger {
     @apply text-2xl max-w-[800px];
+  }
+  .hide {
+    @apply opacity-0;
   }
 }

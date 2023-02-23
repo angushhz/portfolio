@@ -1,10 +1,17 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import { IconHero } from '../Icon'
 import ScrollLink from '../ScrollLink'
+import { revealComponent } from '@/services/fadeIn'
+
 function Hero() {
+  const myRef: any = useRef()
+  useEffect(() => {
+    revealComponent(myRef)
+  }, [])
+
   return (
-    <div className='container'>
+    <section ref={myRef} className='container'>
       <h1 className='header-section sm:header-section-larger '>
         Welcome To <br />
         My Personal Portfolio
@@ -23,7 +30,7 @@ function Hero() {
       <div className='hidden sm:block  absolute top-0 right-0 -z-10 w-[320px] h-[320px] md:w-[520px] md:h-[520px] '>
         <IconHero />
       </div>
-    </div>
+    </section>
   )
 }
 

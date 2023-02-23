@@ -1,13 +1,19 @@
 import { blog } from '@/constant'
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { VscChevronRight } from 'react-icons/vsc'
 import { Icon } from '@iconify/react'
+import { revealComponent } from '@/services/fadeIn'
 
 function Personal() {
+  const myRef: any = useRef()
+  useEffect(() => {
+    revealComponent(myRef)
+  }, [])
+
   return (
-    <section id='personal' className='container'>
+    <section ref={myRef} id='personal' className='container'>
       <div className=' w-8 h-[2px] bg-gradient-to-l from-[#13ADC7] to-[#945DD6] rounded-xl md:w-16 md:h-[6px]'></div>
       <div className='header-section md:header-section-larger'>Personal Knowledge</div>
       <p className='header-content md:header-content-larger md:pb-2'>
@@ -19,7 +25,7 @@ function Personal() {
       <ul className='flex flex-col pt-10 gap-x-12 gap-y-8 lg:grid lg:grid-cols-3'>
         {blog.map((item, index) => (
           <li key={index}>
-            <div className='relative w-full h-[390px] rounded-xl overflow-hidden hover:opacity-50 hover:cursor-pointer'>
+            <div className='relative w-full h-[390px] rounded-xl overflow-hidden transition duration-500 ease-in-out hover:opacity-50 hover:cursor-pointer'>
               <Image src={item.image} alt={item.title} fill />
             </div>
             <h3 className='text-2xl font-semibold mt-1'>{item.title}</h3>
