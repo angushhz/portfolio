@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { timeLineData } from '@/constant'
 import { IconHero, TimeLineSVG } from '../Icon'
-import Slider from 'react-slick'
 import { revealComponent } from '@/services/fadeIn'
 
 function About() {
